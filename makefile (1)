@@ -1,0 +1,13 @@
+all:euler.dat rk.dat leapfrog.dat ODE.PNG
+
+ODE.png:euler.dat rk.dat leapfrog.dat ejercicio26.py
+    python ejercicio26.py
+
+%.dat: ODE.x
+	./ODE.x
+
+ODE.x: ODE.cpp
+	c++ ODE.cpp -o ODE.x
+
+clean:
+	rm -rf *.x *.dat
